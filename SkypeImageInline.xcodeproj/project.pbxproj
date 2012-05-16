@@ -1,0 +1,273 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0917214214647E6C00AAA3FE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0917214114647E6B00AAA3FE /* Cocoa.framework */; };
+		1C4336CE15640D220099389A /* SkypeImageInline-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C4336CD15640D220099389A /* SkypeImageInline-Info.plist */; };
+		1C4336D115640D300099389A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C4336CF15640D300099389A /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0917213E14647E6B00AAA3FE /* SkypeImageInline.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkypeImageInline.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		0917214114647E6B00AAA3FE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		0917214414647E6C00AAA3FE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		0917214514647E6C00AAA3FE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0917214614647E6C00AAA3FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1C4336CD15640D220099389A /* SkypeImageInline-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SkypeImageInline-Info.plist"; path = "SkypeImageInline/SkypeImageInline-Info.plist"; sourceTree = SOURCE_ROOT; };
+		1C4336D015640D300099389A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = SkypeImageInline/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		1C4336D215640D3A0099389A /* SkypeImageInline-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SkypeImageInline-Prefix.pch"; path = "SkypeImageInline/SkypeImageInline-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		1C4336D315640D420099389A /* SkypeImageInline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SkypeImageInline.h; path = SkypeImageInline/SkypeImageInline.h; sourceTree = SOURCE_ROOT; };
+		1C4336D415640D420099389A /* SkypeImageInline.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SkypeImageInline.m; path = SkypeImageInline/SkypeImageInline.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0917213B14647E6A00AAA3FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0917214214647E6C00AAA3FE /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0917213314647E6700AAA3FE = {
+			isa = PBXGroup;
+			children = (
+				0917214714647E6C00AAA3FE /* SkypeImageInline */,
+				0917214014647E6B00AAA3FE /* Frameworks */,
+				0917213F14647E6B00AAA3FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0917213F14647E6B00AAA3FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0917213E14647E6B00AAA3FE /* SkypeImageInline.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0917214014647E6B00AAA3FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0917214114647E6B00AAA3FE /* Cocoa.framework */,
+				0917214314647E6C00AAA3FE /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0917214314647E6C00AAA3FE /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0917214414647E6C00AAA3FE /* AppKit.framework */,
+				0917214514647E6C00AAA3FE /* CoreData.framework */,
+				0917214614647E6C00AAA3FE /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		0917214714647E6C00AAA3FE /* SkypeImageInline */ = {
+			isa = PBXGroup;
+			children = (
+				0917214814647E6C00AAA3FE /* Supporting Files */,
+				1C4336D315640D420099389A /* SkypeImageInline.h */,
+				1C4336D415640D420099389A /* SkypeImageInline.m */,
+			);
+			name = SkypeImageInline;
+			path = SkyeImageInline;
+			sourceTree = "<group>";
+		};
+		0917214814647E6C00AAA3FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C4336D215640D3A0099389A /* SkypeImageInline-Prefix.pch */,
+				1C4336CF15640D300099389A /* InfoPlist.strings */,
+				1C4336CD15640D220099389A /* SkypeImageInline-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0917213D14647E6A00AAA3FE /* SkypeImageInline */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0917215014647E6C00AAA3FE /* Build configuration list for PBXNativeTarget "SkypeImageInline" */;
+			buildPhases = (
+				0917213A14647E6A00AAA3FE /* Sources */,
+				0917213B14647E6A00AAA3FE /* Frameworks */,
+				0917213C14647E6A00AAA3FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkypeImageInline;
+			productName = SkyeImageInline;
+			productReference = 0917213E14647E6B00AAA3FE /* SkypeImageInline.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0917213514647E6800AAA3FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Swedishcampground Software";
+			};
+			buildConfigurationList = 0917213814647E6800AAA3FE /* Build configuration list for PBXProject "SkypeImageInline" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0917213314647E6700AAA3FE;
+			productRefGroup = 0917213F14647E6B00AAA3FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0917213D14647E6A00AAA3FE /* SkypeImageInline */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0917213C14647E6A00AAA3FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C4336CE15640D220099389A /* SkypeImageInline-Info.plist in Resources */,
+				1C4336D115640D300099389A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0917213A14647E6A00AAA3FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1C4336CF15640D300099389A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C4336D015640D300099389A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0917214E14647E6C00AAA3FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0917214F14647E6C00AAA3FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0917215114647E6C00AAA3FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SkyeImageInline/SkyeImageInline-Prefix.pch";
+				INFOPLIST_FILE = "SkypeImageInline/SkypeImageInline-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		0917215214647E6C00AAA3FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SkyeImageInline/SkyeImageInline-Prefix.pch";
+				INFOPLIST_FILE = "SkypeImageInline/SkypeImageInline-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0917213814647E6800AAA3FE /* Build configuration list for PBXProject "SkypeImageInline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0917214E14647E6C00AAA3FE /* Debug */,
+				0917214F14647E6C00AAA3FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0917215014647E6C00AAA3FE /* Build configuration list for PBXNativeTarget "SkypeImageInline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0917215114647E6C00AAA3FE /* Debug */,
+				0917215214647E6C00AAA3FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0917213514647E6800AAA3FE /* Project object */;
+}
