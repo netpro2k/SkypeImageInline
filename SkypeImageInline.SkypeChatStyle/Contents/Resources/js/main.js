@@ -1,8 +1,13 @@
 /**
  * @fileoverview Skype Panamericana Chatstyle main JS library
- * @author Margus Holland (margusholland@me.com)
- * @version 1.0
+ * @author Margus Holland <margusholland@me.com>
+ * @author Martin Kapp <meister@me.com>
+ * @version 1.1
 */
+
+/*
+ * Copyright (c) 2011 Skype Technologies S.A. All rights reserved.
+ */
 
 if (typeof SCS == "undefined") {
 	var SCS = {};
@@ -133,6 +138,10 @@ SCS.Conversation = function() {
 						dC.setMode_leftMargin_rightMargin_(_mode.name, _mode.left, _mode.right);
 					}
 					
+				}
+
+				if (self._nearBottom()) {
+					self.scrollToEnd();
 				}
 			};
 			
@@ -440,7 +449,7 @@ SCS.Conversation = function() {
 	 * @private
 	 */
 	this._nearBottom = function() {
-		return (document.body.scrollTop+window.innerHeight >= document.body.offsetHeight-75);
+		return (document.body.scrollTop+window.innerHeight >= document.body.offsetHeight-106);
 	};
 	
 	/**
@@ -454,25 +463,11 @@ SCS.Conversation = function() {
 	 */	   
 	this.appendItem = function(html, scroll) {
 		if (_container.length > 0) {
-			// alert(html)
-			var $html = $(html);
-			var $links = $html.find('.body a');
-			$links.each(function(){
-				var $el = $(this)
-				var href = $el.attr('href')
-				if(href.indexOf('cl.ly') != -1){
-					href += '/content';
-				}
-
-				if(href && (href.indexOf('cl.ly') != -1 || href.indexOf('jpg') != -1 || href.indexOf('gif') != -1 || href.indexOf('png') != -1)){
-					$el.replaceWith('<a href="'+$el.attr('href')+'"><img style="display: block; height: 250px;" src="' + href + '"/></a>');
-				}
-			})
 			var atEnd = self._nearBottom();
 			if ($("#typing").length > 0) {
-				$("#conversation #typing").before($html);
+				$("#conversation #typing").before(html);
 			} else {
-				_container.append($html);
+				_container.append(html);
 			}
 			if (scroll && atEnd) {
 				self.scrollToEnd();
@@ -1015,7 +1010,7 @@ SCS.Conversation = function() {
 				} else {
 					$m.removeClass("edited deleted sending").addClass(status);
 				}
-				return SCS.err.showError(200, "messageMarkAs");			   
+				return SCS.err.showError(200, "messageMarkAs");
 			} else {
 				return SCS.err.showError(511, "messageMarkAs");
 			}
@@ -1086,6 +1081,7 @@ SCS.Conversation = function() {
 			return SCS.err.showError(513, "messageUpdate");
 		}
 		var $m = $("#"+id+"");
+		$(".emoticon", $m).deleteSprite();
 		if (_container.length > 0) {
 			if ($m.length > 0 && $m.hasClass("message")) {
 				if (status != "undefined" && status != null) {
@@ -1098,6 +1094,19 @@ SCS.Conversation = function() {
 					$(".time", $m).html(time);
 				}
 				$m.css('display', 'inline').css('display', 'block');
+				updateEmoticonSprites();
+				return SCS.err.showError(200, "messageUpdate");
+			} else if ($m.length > 0 && $m.hasClass("emote")) {
+				if (status != "undefined" && status != null) {
+					self.messageMarkAs(id, status);
+				}
+				if (message != null) {
+					$(".body", $m).html(message);
+				}
+				if (time != null) {
+					$(".time", $m).html(time);
+				}
+				updateEmoticonSprites();
 				return SCS.err.showError(200, "messageUpdate");
 			} else {
 				return SCS.err.showError(511, "messageUpdate");
@@ -1180,6 +1189,41 @@ SCS.Conversation = function() {
 	};
 
 	/**
+	 * Show close button form chat area
+	 * @returns void
+	 */
+	this.showChatCloseButton = function() {
+		var $button = $(".chatCloseButton");
+		if (!$button.length) {
+			$button = $("<div class=\"chatCloseButton\" role=\"button\"></div>");
+			$button.attr("aria-label", dC.localizedStringForKey_("ButtonTitle_Close"));
+			$button.attr("title", dC.localizedStringForKey_("ButtonTitle_Close"));
+			$button.bind("click", function() {
+				dC.hideLiveChat();
+			});
+			_container.append($button);
+			return SCS.err.showError(200, "showChatCloseButtonCreated");
+		} else {
+			$button.show();
+		}
+		return SCS.err.showError(200, "showChatCloseButtonShown");
+	};
+
+	/**
+	 * Hides close button in the chat area
+	 * @returns void
+	 */
+	this.hideChatCloseButton = function() {
+		var $button = $(".chatCloseButton");
+		if ($button.length) {
+			$button.hide();
+			return SCS.err.showError(200, "hideChatCloseButton");
+		}
+		return SCS.err.showError(511, "hideChatCloseButton");
+	};
+
+
+	/**
 	 * Get info from an item if it’s visible in the viewport
 	 * @param {String} id ID of the item to ask
 	 * @param {Boolean} partly (Optional) Set to true to allow partial viewport visibility of an item
@@ -1211,7 +1255,7 @@ SCS.Conversation = function() {
 			return SCS.err.showError(510, "isInViewport");
 		}
 	};
-	
+
 	/**
 	 * Init SCS.Conversation object
 	 * @return Response code with description

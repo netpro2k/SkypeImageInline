@@ -26,7 +26,12 @@ i {
 	#conversation .item {
 		clear: both;
 	}
-	
+
+		#conversation .avatar {
+			height: 32px;
+			width: 32px;
+		}
+
 		#conversation .item div.body {
 			overflow: hidden;
 			word-wrap: break-word;
@@ -228,11 +233,11 @@ i {
 				background: url(../gfx/buttons-22.png) no-repeat 0 -22px;
 			}
 
-	#conversation .emoticon {
+/*	#conversation .emoticon {
 		vertical-align: middle;
 		margin: -4px 0 0 0;
 	}
-	
+*/	
 	#conversation br + br {
 		margin-top: -10px;
 	}
@@ -312,7 +317,7 @@ i {
 			padding-left: 14px;
 			background: url(../gfx/asset-sprite.png) no-repeat 0 -7px;
 		}
-		
+
 		#conversation .message .delete {
 			background-position: 0 0;
 			float: right;
@@ -365,6 +370,7 @@ i {
 		}
 		
 		#conversation.compact .message div.body {
+			padding-top: 4px;
 			padding-right: 21px;
 		}
 		
@@ -393,8 +399,12 @@ i {
 			display: none;
 		}
 		
-		#conversation .message.editable.deleted:hover .time {
+		#conversation .message.deleted:hover .time {
 			display: block;
+			opacity: 0.3;
+		}
+		#conversation .message.deleted:hover .actions {
+			display: none;
 		}
 
 	#conversation .message.followup {
@@ -484,20 +494,35 @@ i {
 		
 		#conversation .sms .time {
 			float: right;
-			margin-left: -127px;
 			text-align: right;
 			min-height: 14px;
+			line-height: 14px;
 			color: #000;
 			opacity: 0.3;
 		}
+
+		#conversation .sms .time.sent {
+			background: url(../gfx/ChatSMSReceived.png) no-repeat right 0;
+			padding-right:22px;
+		}
 		
+		#conversation .sms .time.received {
+			background: url(../gfx/ChatSMSSent.png) no-repeat right 0;
+			padding-right:22px;
+		}
+		
+		#conversation .sms .time.failed {
+			background: url(../gfx/ChatSMSProblem.png) no-repeat right 0;
+			padding-right:22px;
+		}
+
 		#conversation .sms .avatar {
 			float: left;
 			margin: 1px 0 0 -53px;
 		}
 		
 		#conversation .sms div.body {
-			padding: 4px 127px 0 0;
+			padding: 0px 127px 0 0;
 		}
 		
 		#conversation.compact .sms div.body {
@@ -510,67 +535,67 @@ i {
 	
 	/* Calls */
 	
-	#conversation .call {
+	#conversation .item.call {
 		padding: 0 23px 0 76px;
 		border-top: 1px solid #ececec;
 		background: #fff;
 	}
 	
-	#conversation.compact .call {
+	#conversation.compact .item.call {
 			padding-left: 23px;
 		}
 	
-	#conversation .call:first-child {
+	#conversation .item.call:first-child {
 		border-top: none;
 	}
 	
-	#conversation .call:last-child {
+	#conversation .item.call:last-child {
 		border-bottom: 1px solid #e5e5e5;
 	}
 
-		#conversation .call .container {
+		#conversation .item.call .container {
 			padding: 12px 0 10px 0;
 		}
 		
-		#conversation .call .head {
+		#conversation .item.call .head {
 			font: normal 11px/13px "Lucida Grande", sans-serif;
 			color: rgba(0, 0, 0, 0.30);
 			margin-bottom: 3px;
 		}
 		
-		#conversation .call .sender {
+		#conversation .item.call .sender {
 			font-weight: bold;
 		}
 		
-			#conversation .call .sender a {
+			#conversation .item.call .sender a {
 				color: rgba(0, 0, 0, 0.30);
 				text-decoration: none;
 			}
 		
-		#conversation .call .time {
+		#conversation .item.call .time {
 			float: right;
 			margin-left: -127px;
 			margin-top: 3px;
 			text-align: right;
 		}
 		
-		#conversation .call .avatar {
+		#conversation .item.call .avatar {
 			float: left;
 			margin: -7px 0 0 -53px;
 		}
 		
-		#conversation.compact .call .avatar {
+		#conversation.compact .item.call .avatar {
 			display: none;
 		}
 		
-		#conversation .call div.body {
+		#conversation .item.call div.body {
 			font-weight: bold;
 			padding-right: 127px;
 			margin-top: -4px;
 			overflow: visible;
 		}
 		
-			#conversation .call div.body .duration {
+			#conversation .item.call div.body .duration {
 				color: rgba(0, 0, 0, 0.60);
 				font-weight: normal;
 				padding-left: 7px;
@@ -599,10 +624,19 @@ i {
 		
 		#conversation .emote .head {
 			font: normal 11px/13px "Lucida Grande", sans-serif;
-			color: rgba(0, 0, 0, 0.30);
 			margin-bottom: 4px;
 		}
-		
+
+		#conversation .emote .time {
+			color: #000;
+			opacity: 0.3;
+		}
+
+		#conversation .emote.edited .time {
+			padding-left: 14px;
+			background: url(../gfx/asset-sprite.png) no-repeat 0 -7px;
+		}
+
 		#conversation .emote .avatar {
 			float: left;
 			margin-left: -128px;
@@ -1415,3 +1449,24 @@ i {
 	#conversation .alert + .typing.invisible {
 		border-top: 1px solid rgba(255, 255, 255, 0);
 	}
+
+/* Chat close button */
+.chatCloseButton {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	z-index: 10;
+	width: 50px;
+	height: 41px;
+
+	background: transparent url(../gfx/chat-close.png) no-repeat top right;
+}
+.chatCloseButton:active {
+	background-position: 0px -41px;
+}
+
+span.emoticon { 
+	display:inline-block;
+    width:20px;
+    height:20px;
+}
