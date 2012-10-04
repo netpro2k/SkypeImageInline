@@ -6,6 +6,10 @@
 //
 
 #import "SkypeImageInline.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
+
+@class WebView, WebDataSource;
 
 @interface SkypeImageInline ()
 
@@ -41,7 +45,7 @@
 
 - (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *) dataSource
 {
-    // Override default Skype behavior of blocking HTTP requests from JS
+    // Override default Skype behavior of blocking HTTP requests
     return request;
 }
 
