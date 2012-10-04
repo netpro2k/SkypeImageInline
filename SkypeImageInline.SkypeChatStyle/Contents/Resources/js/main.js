@@ -462,12 +462,25 @@ SCS.Conversation = function() {
 	 * @see #appendBulk
 	 */	   
 	this.appendItem = function(html, scroll) {
+		// alert(html)
+		var $html = $(html);
+		var $links = $html.find('.body a');
+		$links.each(function(){
+			var $el = $(this)
+			var href = $el.attr('href')
+			if(href.indexOf('cl.ly') != -1){
+				href += '/content';
+			}
+			if(href && (href.indexOf('cl.ly') != -1 || href.indexOf('jpg') != -1 || href.indexOf('gif') != -1 || href.indexOf('png') != -1)){
+				$el.replaceWith('<a href="'+$el.attr('href')+'"><img style="display: block; height: 250px;" src="' + href + '"/></a>');
+			}
+		});
 		if (_container.length > 0) {
 			var atEnd = self._nearBottom();
 			if ($("#typing").length > 0) {
-				$("#conversation #typing").before(html);
+				$("#conversation #typing").before($html);
 			} else {
-				_container.append(html);
+				_container.append($html);
 			}
 			if (scroll && atEnd) {
 				self.scrollToEnd();
