@@ -1,34 +1,25 @@
-# Mac OS X Finder and whatnot
 .DS_Store
+*.swp
+*~.nib
 
-# Sparkle distribution Private Key (Don't check me in!)
-dsa_priv.pem
+build/
+archives/
+output/
+deploy/
 
-# XCode (and ancestors) per-user config (very noisy, and not relevant)
-*.mode1
-*.mode1v3
-*.mode2v3
+*.pbxuser
 *.perspective
 *.perspectivev3
-*.pbxuser
+*.pbxproj.mergesave
 
-# Generated files
-VersionX-revision.h
+xcuserdata
+*.xcuserdatad
+*.xcuserstate
 
-# build products
-build/
-*.[oa]
+AviarySDK.xcodeproj/xcuserdata/*
+AviarySDK.xcodeproj/project.xcworkspace/xcuserdata/*
+AviarySDK.xcodeproj/project.xcworkspace/xcuserdata/*/*
 
-# Other source repository archive directories (protects when importing)
-.hg
-.svn
-CVS
+*.pyc
 
-# automatic backup files
-*~.nib
-*.swp
-*~
-*(Autosaved).rtfd/
-Backup[ ]of[ ]*.pages/
-Backup[ ]of[ ]*.key/
-Backup[ ]of[ ]*.numbers/
+AviarySDK/Resources/AviarySDKAssets.plist

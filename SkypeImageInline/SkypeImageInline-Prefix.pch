@@ -3,5 +3,8 @@
 //
 
 #ifdef __OBJC__
-  #import <Cocoa/Cocoa.h>
+    #import <Cocoa/Cocoa.h>
+    #import <objc/runtime.h>
+    #import <objc/message.h>
+    #import <WebKit/WebResourceLoadDelegate.h>
 #endif

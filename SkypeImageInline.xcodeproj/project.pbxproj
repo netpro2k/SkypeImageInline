@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0917214214647E6C00AAA3FE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0917214114647E6B00AAA3FE /* Cocoa.framework */; };
-		1C4336CE15640D220099389A /* SkypeImageInline-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C4336CD15640D220099389A /* SkypeImageInline-Info.plist */; };
 		1C4336D115640D300099389A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C4336CF15640D300099389A /* InfoPlist.strings */; };
+		7ECABDA4161D171F0015EA8F /* SkypeImageInline.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4336D415640D420099389A /* SkypeImageInline.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,9 +76,9 @@
 		0917214714647E6C00AAA3FE /* SkypeImageInline */ = {
 			isa = PBXGroup;
 			children = (
-				0917214814647E6C00AAA3FE /* Supporting Files */,
 				1C4336D315640D420099389A /* SkypeImageInline.h */,
 				1C4336D415640D420099389A /* SkypeImageInline.m */,
+				0917214814647E6C00AAA3FE /* Supporting Files */,
 			);
 			name = SkypeImageInline;
 			path = SkyeImageInline;
@@ -120,7 +120,7 @@
 		0917213514647E6800AAA3FE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Swedishcampground Software";
 			};
 			buildConfigurationList = 0917213814647E6800AAA3FE /* Build configuration list for PBXProject "SkypeImageInline" */;
@@ -145,7 +145,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C4336CE15640D220099389A /* SkypeImageInline-Info.plist in Resources */,
 				1C4336D115640D300099389A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ECABDA4161D171F0015EA8F /* SkypeImageInline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +178,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -195,7 +195,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -204,7 +203,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -223,8 +222,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SkyeImageInline/SkyeImageInline-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SkypeImageInline/SkypeImageInline-Prefix.pch";
 				INFOPLIST_FILE = "SkypeImageInline/SkypeImageInline-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				ONLY_ACTIVE_ARCH = YES;
@@ -237,8 +237,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SkyeImageInline/SkyeImageInline-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SkypeImageInline/SkypeImageInline-Prefix.pch";
 				INFOPLIST_FILE = "SkypeImageInline/SkypeImageInline-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
