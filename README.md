@@ -12,7 +12,7 @@ Inlines links to images in skype conversations. It includes 2 parts:
 4. Symlink or move the built `SkypeImageInline.bundle` into `~/Library/Application\ Support/SIMBL/Plugins`
 5. Copy the SkypeImageInline.SkypeChatStyle to `~/Library/Application\ Support/Skype/ChatStyles/`
 6. Open Skype
-7. Select the ImageInline style in in Skype > Prefferences > Messaging
+7. Select the ImageInline style in in Skype > Preferences > Messaging
 6. Relaunch Skype
 
 ### Install script
@@ -27,7 +27,7 @@ cp -r SkypeImageInline.SkypeChatStyle ~/Library/Application\ Support/Skype/ChatS
 
 ## Usage
 
-After installing, any links containg .jpg, .gif, .png or cl.ly will automatically be inlined as images. You can click on the image to open in browser.
+After installing, any links containing .jpg, .jpeg, .gif, .png or cl.ly will automatically be inlined as images. You can click on the image to open in a browser.
 
 ## Copyright
 
