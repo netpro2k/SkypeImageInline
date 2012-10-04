@@ -16,10 +16,4 @@ xcuserdata
 *.xcuserdatad
 *.xcuserstate
 
-AviarySDK.xcodeproj/xcuserdata/*
-AviarySDK.xcodeproj/project.xcworkspace/xcuserdata/*
-AviarySDK.xcodeproj/project.xcworkspace/xcuserdata/*/*
-
 *.pyc
-
-AviarySDK/Resources/AviarySDKAssets.plist
