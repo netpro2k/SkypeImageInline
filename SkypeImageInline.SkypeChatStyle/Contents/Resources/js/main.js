@@ -471,7 +471,12 @@ SCS.Conversation = function() {
 			if(href.indexOf('cl.ly') != -1){
 				href += '/content';
 			}
-			if(href && (((href.indexOf('cl.ly') != -1) && (href.indexOf('image') != -1)) || href.indexOf('jpg') != -1 || href.indexOf('gif') != -1 || href.indexOf('png') != -1)){
+			if(href && (
+				((href.indexOf('cl.ly') != -1) && (href.indexOf('image') != -1)) || 
+				(href.indexOf('jpg') != -1) ||
+				(href.indexOf('jpeg') != -1) ||
+				(href.indexOf('gif') != -1) ||
+				(href.indexOf('png') != -1))){
 				$el.replaceWith('<a href="'+$el.attr('href')+'"><img style="display: block; height: 250px;" src="' + href + '"/></a>');
 			}
 		});
