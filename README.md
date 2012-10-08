@@ -1,8 +1,6 @@
 # SkypeImageInline
 
-Inlines links to images in skype conversations. It includes 2 parts:
-
-[SIMBL plugin]: http://www.culater.net/software/SIMBL/SIMBL.php
+Inlines links to images in skype conversations. Requires [SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php).
 
 ## Simple install
 
@@ -22,7 +20,7 @@ cp -r SkypeImageInline.SkypeChatStyle ~/Library/Application\ Support/Skype/ChatS
 
 ## Usage
 
-After installing, any links containing .jpg, .jpeg, .gif, .png or cl.ly will automatically be inlined as images. You can click on the image to open in a browser.
+After installing, any links to images containing .jpg, .jpeg, .gif, .png or cl.ly will automatically be inlined as images. You can click on the image to open in a browser.
 
 ## Copyright
 
