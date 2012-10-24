@@ -2,7 +2,8 @@
 
 Inlines links to images in skype conversations. It includes 2 parts:
 
-[SIMBL plugin]: http://www.culater.net/software/SIMBL/SIMBL.php
+1. a [SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php) plugin.
+2. a "chat style" for Skype
 
 ## Installation
 
