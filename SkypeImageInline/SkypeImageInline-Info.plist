@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -32,9 +32,9 @@
 			<key>BundleIdentifier</key>
 			<string>com.skype.skype</string>
 			<key>MaxBundleVersion</key>
-			<string>5.1.0.968</string>
+			<string>6.0.60.2946</string>
 			<key>MinBundleVersion</key>
-			<string>5.1.0.968</string>
+			<string>6.0.60.0</string>
 		</dict>
 	</array>
 </dict>
