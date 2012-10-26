@@ -1,8 +1,9 @@
 /**
  * sprite plugin
  *
- * @copy      Copyright (c) 2012 Skype Limited
- * @author    Martin Kapp <skype:kappmartin>
+ * @copy	Copyright (c) 2012 Skype Limited
+ * @author  Martin Kapp <skype:kappmartin>
+ * @author	Thibault Martin-Lagardette
  */
 (function($) {
 
@@ -65,9 +66,9 @@
 			}
 		},
 		removeAnimation: function(el) {
-			var id = $(el).data('sprite_id');
-			if (typeof id !== "undefined" && typeof this.animations[sprite_id] !== "undefined") {
-				this.animations[id].running = false;
+			var sprite_id = $(el).data('sprite_id');
+			if (typeof sprite_id !== "undefined" && typeof this.animations[sprite_id] !== "undefined") {
+				this.animations[sprite_id].running = false;
 			}
 		},
 		deleteSprite: function(el) {
@@ -123,13 +124,16 @@
 		options.frame_height = $(element).height();
 		options.frame_width = $(element).width();
 
-		var str = $(element).css("background-image"), h, w,
-			i = new Image();
+		var str = $(element).css("background-image");
+		var i = new Image();
+		var h, w;
+		var expectedWidth = parseInt($(element).css("width"), 10);
 
 		i.src = str.replace(/^url\(\"?([^"]+)\"?\)$/, "$1");
 		i.onload = function() {
-			h = i.height;
-			w = i.width;
+			divider = parseInt(i.width / expectedWidth, 10);
+			h = i.height / divider;
+			w = i.width / divider;
 
 			options.no_of_frames = (options.dir == 'vertical') ? (h / options.frame_height)|0 : (w / options.frame_width)|0;
 			SpriteCore.addAnimation(element, options);

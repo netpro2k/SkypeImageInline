@@ -23,7 +23,7 @@
 	<key>DisableCustomBackground</key>
 	<true/>
 	<key>MessageViewVersion</key>
-	<integer>6</integer>
+	<integer>7</integer>
 	<key>ShowsUserIcons</key>
 	<true/>
 	<key>FormattedCopyCompatible</key>
