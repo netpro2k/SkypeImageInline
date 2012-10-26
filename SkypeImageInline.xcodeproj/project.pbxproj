@@ -451,6 +451,7 @@
 				7EFD1401161D53BB00C54E5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
