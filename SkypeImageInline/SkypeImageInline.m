@@ -6,54 +6,57 @@
 //
 
 #import "SkypeImageInline.h"
-#import <objc/runtime.h> 
+#import <objc/runtime.h>
 #import <objc/message.h>
-#import <WebKit/WebResourceLoadDelegate.h>
 
-@interface SkypeImageInline()
+@class WebView, WebDataSource;
 
-- (NSApplication*) skypeApp;
-- (void) resetMinSize;
+@interface SkypeImageInline ()
+
+- (NSApplication *)skypeApp;
 
 @end
 
 @implementation SkypeImageInline
 
-+ (void) load
++ (void)load
 {
-  SkypeImageInline *plugin = [SkypeImageInline sharedInstance];
-  [plugin rewireWebview];
+    SkypeImageInline *plugin = [SkypeImageInline sharedInstance];
+    [plugin rewireWebview];
 
-  NSLog(@"SkypeImageInline successfully installed");
+    NSLog(@"SkypeImageInline successfully installed");
 }
 
-+ (SkypeImageInline*) sharedInstance
++ (SkypeImageInline *)sharedInstance
 {
-  static SkypeImageInline *plugin = nil;
-  
-  if (plugin == nil)
-    plugin = [SCGSkypeAnySize new];
+    static SkypeImageInline *plugin = nil;
 
-  return plugin;
+    if (plugin == nil) {
+        plugin = [SkypeImageInline new];
+    }
+
+    return plugin;
 }
 
-- (NSApplication*) skypeApp
+- (NSApplication *)skypeApp
 {
-  return [NSApplication sharedApplication];
+    return [NSApplication sharedApplication];
 }
 
-- (NSURLRequest *) webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *) dataSource {
+- (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *) dataSource
+{
+    // Override default Skype behavior of blocking HTTP requests
     return request;
 }
 
-- (void) rewireWebview
+- (void)rewireWebview
 {
-    Class c = NSClassFromString(@"SkypeChatDisplay");
-    SEL s = @selector(webView:resource:willSendRequest:redirectResponse:fromDataSource:);
-    Method origMethod = class_getInstanceMethod(c, s);
-    Method newMethod = class_getInstanceMethod(self.class, s);
+    Class cls = NSClassFromString(@"SkypeChatDisplay");
+    SEL sel = @selector(webView:resource:willSendRequest:redirectResponse:fromDataSource:);
+    Method origMethod = class_getInstanceMethod(cls, sel);
+    Method newMethod = class_getInstanceMethod(self.class, sel);
     IMP imp = method_getImplementation(newMethod);
-    class_replaceMethod(c, s, imp, method_getTypeEncoding(origMethod));
+    class_replaceMethod(cls, sel, imp, method_getTypeEncoding(origMethod));
 }
 
 @end

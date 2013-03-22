@@ -1,0 +1,488 @@
+span.emoticon { 
+	display:inline-block;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    color: transparent;
+    background-position: 0 0;
+    background-size: 20px auto;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    vertical-align: bottom;
+    font-size: 0;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+/* STATIC */
+
+/* default 20x20px emoticons */
+
+    span.emoticon.emo_smile {
+        background-image: url(skcg:emoticon?type=smile);
+        background-position-y: -200px;
+    }
+
+    span.emoticon.emo_sad {
+        background-image: url(skcg:emoticon?type=sad);
+        background-position-y: -240px;
+    }
+
+    span.emoticon.emo_laugh {
+        background-image: url(skcg:emoticon?type=laugh);
+        background-position-y: -160px;
+    }
+
+    span.emoticon.emo_cool {
+        background-image: url(skcg:emoticon?type=cool);
+        background-position-y: -380px;
+    }
+
+    span.emoticon.emo_surprised {
+        background-image: url(skcg:emoticon?type=surprised);
+        background-position-y: -320px;
+    }
+
+    span.emoticon.emo_wink {
+        background-image: url(skcg:emoticon?type=wink);
+        background-position-y: -320px;
+    }
+
+    span.emoticon.emo_cry {
+        background-image: url(skcg:emoticon?type=cry);
+        background-position-y: -720px;
+    }
+
+    span.emoticon.emo_sweat {
+        background-image: url(skcg:emoticon?type=sweat);
+        background-position-y: -280px;
+    }
+
+    span.emoticon.emo_speechless {
+        background-image: url(skcg:emoticon?type=speechless);
+        background-position-y: -220px;
+    }
+
+    span.emoticon.emo_kiss {
+        background-image: url(skcg:emoticon?type=kiss);
+        background-position-y: -380px;
+    }
+
+    span.emoticon.emo_tongueout {
+        background-image: url(skcg:emoticon?type=tongueout);
+        background-position-y: -240px;
+    }
+
+    span.emoticon.emo_blush {
+        background-image: url(skcg:emoticon?type=blush);
+        background-position-y: -140px;
+    }
+
+    span.emoticon.emo_wonder {
+        background-image: url(skcg:emoticon?type=wonder);
+        background-position-y: -220px;
+    }
+
+    span.emoticon.emo_sleepy {
+        background-image: url(skcg:emoticon?type=sleepy);
+    }
+
+    span.emoticon.emo_dull {
+        background-image: url(skcg:emoticon?type=dull);
+        background-position-y: -220px;
+    }
+
+    span.emoticon.emo_inlove {
+        background-image: url(skcg:emoticon?type=inlove);
+    }
+
+    span.emoticon.emo_eg {
+        background-image: url(skcg:emoticon?type=eg);
+        background-position-y: -1000px;
+    }
+
+    span.emoticon.emo_fingerscrossed {
+        background-image: url(skcg:emoticon?type=fingerscrossed);
+        background-position-y: -100px;
+    }
+
+    span.emoticon.emo_yawn {
+        background-image: url(skcg:emoticon?type=yawn);
+        background-position-y: -380px;
+    }
+
+    span.emoticon.emo_puke {
+        background-image: url(skcg:emoticon?type=puke);
+        background-position-y: -500px;
+    }
+
+    span.emoticon.emo_doh {
+        background-image: url(skcg:emoticon?type=doh);
+        background-position-y: -600px;
+    }
+
+    span.emoticon.emo_angry {
+        background-image: url(skcg:emoticon?type=angry);
+    }
+
+    span.emoticon.emo_wasntme {
+        background-image: url(skcg:emoticon?type=wasntme);
+        background-position-y: -360px;
+    }
+
+    span.emoticon.emo_party {
+        background-image: url(skcg:emoticon?type=party);
+    }
+
+    span.emoticon.emo_worry {
+        background-image: url(skcg:emoticon?type=worry);
+    }
+
+    span.emoticon.emo_mmm {
+        background-image: url(skcg:emoticon?type=mmm);
+        background-position-y: -500px;
+    }
+
+    span.emoticon.emo_nerdy {
+        background-image: url(skcg:emoticon?type=nerdy);
+    }
+
+    span.emoticon.emo_lipssealed {
+        background-image: url(skcg:emoticon?type=lipssealed);
+        background-position-y: -160px;
+    }
+
+    span.emoticon.emo_hi {
+        background-image: url(skcg:emoticon?type=hi);
+        background-position-y: -140px;
+    }
+
+    span.emoticon.emo_facepalm {
+        background-image: url(skcg:emoticon?type=facepalm);
+        background-position-y: -1320px;
+    }
+
+    span.emoticon.emo_devil {
+        background-image: url(skcg:emoticon?type=devil);
+    }
+
+    span.emoticon.emo_angel {
+        background-image: url(skcg:emoticon?type=angel);
+        background-position-y: -580px;
+    }
+
+    span.emoticon.emo_envy {
+        background-image: url(skcg:emoticon?type=envy);
+        background-position-y: -320px;
+    }
+
+    span.emoticon.emo_wait {
+        background-image: url(skcg:emoticon?type=wait);
+        background-position-y: -260px;
+    }
+
+    span.emoticon.emo_hug {
+        background-image: url(skcg:emoticon?type=hug);
+        background-position-y: -200px;
+    }
+
+    span.emoticon.emo_makeup {
+        background-image: url(skcg:emoticon?type=makeup);
+        background-position-y: -1020px;
+    }
+
+    span.emoticon.emo_giggle {
+        background-image: url(skcg:emoticon?type=giggle);
+    }
+
+    span.emoticon.emo_clap {
+        background-image: url(skcg:emoticon?type=clap);
+        background-position-y: -100px;
+    }
+
+    span.emoticon.emo_think {
+        background-image: url(skcg:emoticon?type=think);
+    }
+
+    span.emoticon.emo_bow {
+        background-image: url(skcg:emoticon?type=bow);
+        background-position-y: -600px;
+    }
+
+    span.emoticon.emo_rofl {
+        background-image: url(skcg:emoticon?type=rofl);
+    }
+
+    span.emoticon.emo_whew {
+        background-image: url(skcg:emoticon?type=whew);
+        background-position-y: -120px;
+    }
+
+    span.emoticon.emo_happy {
+        background-image: url(skcg:emoticon?type=happy);
+    }
+
+    span.emoticon.emo_smirk {
+        background-image: url(skcg:emoticon?type=smirk);
+        background-position-y: -520px;
+    }
+
+    span.emoticon.emo_nod {
+        background-image: url(skcg:emoticon?type=nod);
+        background-position-y: -600px;
+    }
+
+    span.emoticon.emo_shake {
+        background-image: url(skcg:emoticon?type=shake);
+        background-position-y: -200px;
+    }
+
+    span.emoticon.emo_waiting {
+        background-image: url(skcg:emoticon?type=waiting);
+        background-position-y: -200px;
+    }
+
+    span.emoticon.emo_emo {
+        background-image: url(skcg:emoticon?type=emo);
+        background-position-y: -200px;
+    }
+
+    span.emoticon.emo_yes {
+        background-image: url(skcg:emoticon?type=yes);
+        background-position-y: -300px;
+    }
+
+    span.emoticon.emo_no {
+        background-image: url(skcg:emoticon?type=no);
+        background-position-y: -300px;
+    }
+
+    span.emoticon.emo_handshake {
+        background-image: url(skcg:emoticon?type=handshake);
+        background-position-y: -260px;
+    }
+
+    span.emoticon.emo_highfive {
+        background-image: url(skcg:emoticon?type=highfive);
+        background-position-y: -180px;
+    }
+
+    span.emoticon.emo_heart {
+        background-image: url(skcg:emoticon?type=heart);
+        background-position-y: -160px;
+    }
+
+    span.emoticon.emo_lalala {
+        background-image: url(skcg:emoticon?type=lalala);
+        background-position-y: -300px;
+    }
+
+    span.emoticon.emo_heidy {
+        background-image: url(skcg:emoticon?type=heidy);
+        background-position-y: -480px;
+    }
+
+    span.emoticon.emo_flower {
+        background-image: url(skcg:emoticon?type=flower);
+    }
+
+    span.emoticon.emo_rain {
+        background-image: url(skcg:emoticon?type=rain);
+        background-position-y: -60px;
+    }
+
+    span.emoticon.emo_sun {
+        background-image: url(skcg:emoticon?type=sun);
+        background-position-y: -120px;
+    }
+
+    span.emoticon.emo_tumbleweed {
+        background-image: url(skcg:emoticon?type=tumbleweed);
+    }
+
+    span.emoticon.emo_music {
+        background-image: url(skcg:emoticon?type=music);
+        background-position-y: -600px;
+    }
+
+    span.emoticon.emo_bandit {
+        background-image: url(skcg:emoticon?type=bandit);
+        background-position-y: -160px;
+    }
+
+    span.emoticon.emo_tmi {
+        background-image: url(skcg:emoticon?type=tmi);
+        background-position-y: -360px;
+    }
+
+    span.emoticon.emo_coffee {
+        background-image: url(skcg:emoticon?type=coffee);
+    }
+
+    span.emoticon.emo_pizza {
+        background-image: url(skcg:emoticon?type=pizza);
+        background-position-y: -480px;
+    }
+
+    span.emoticon.emo_cash {
+        background-image: url(skcg:emoticon?type=cash);
+        background-position-y: -220px;
+    }
+
+    span.emoticon.emo_muscle {
+        background-image: url(skcg:emoticon?type=muscle);
+    }
+
+    span.emoticon.emo_cake {
+        background-image: url(skcg:emoticon?type=cake);
+    }
+
+    span.emoticon.emo_beer {
+        background-image: url(skcg:emoticon?type=beer);
+    }
+
+    span.emoticon.emo_drink {
+        background-image: url(skcg:emoticon?type=drink);
+    }
+
+    span.emoticon.emo_dance {
+        background-image: url(skcg:emoticon?type=dance);
+    }
+
+    span.emoticon.emo_ninja {
+        background-image: url(skcg:emoticon?type=ninja);
+        background-position-y: -380px;
+    }
+
+    span.emoticon.emo_star {
+        background-image: url(skcg:emoticon?type=star);
+    }
+
+    span.emoticon.emo_headbang {
+        background-image: url(skcg:emoticon?type=headbang);
+        background-position-y: -340px;
+    }
+
+    span.emoticon.emo_swear {
+        background-image: url(skcg:emoticon?type=swear);
+        background-position-y: -120px;
+    }
+
+    span.emoticon.emo_drunk {
+        background-image: url(skcg:emoticon?type=drunk);
+        background-position-y: -400px;
+    }
+
+    span.emoticon.emo_fubar {
+        background-image: url(skcg:emoticon?type=fubar);
+        background-position-y: -300px;
+    }
+
+    span.emoticon.emo_finger {
+        background-image: url(skcg:emoticon?type=finger);
+        background-position-y: -280px;
+    }
+
+    span.emoticon.emo_poolparty {
+        background-image: url(skcg:emoticon?type=poolparty);
+    }
+
+    span.emoticon.emo_rock {
+        background-image: url(skcg:emoticon?type=rock);
+        background-position-y: -100px;
+    }
+
+    span.emoticon.emo_smoke {
+        background-image: url(skcg:emoticon?type=smoke);
+    }
+
+    span.emoticon.emo_wtf {
+        background-image: url(skcg:emoticon?type=wtf);
+    }
+
+    span.emoticon.emo_bug {
+        background-image: url(skcg:emoticon?type=bug);
+    }
+
+    span.emoticon.emo_toivo {
+        background-image: url(skcg:emoticon?type=toivo);
+    }
+
+    span.emoticon.emo_wfh {
+        background-image: url(skcg:emoticon?type=wfh);
+    }
+
+    span.emoticon.emo_hollest {
+        background-image: url(skcg:emoticon?type=hollest);
+        background-position-y: -140px;
+    }
+
+    span.emoticon.emo_priidu {
+        background-image: url(skcg:emoticon?type=priidu);
+        background-position-y: -1000px;
+    }
+
+    span.emoticon.emo_mail {
+        background-image: url(skcg:emoticon?type=mail);
+    }
+
+    span.emoticon.emo_time {
+        background-image: url(skcg:emoticon?type=time);
+        background-position-y: -360px;
+    }
+
+    span.emoticon.emo_movie {
+        background-image: url(skcg:emoticon?type=movie);
+    }
+
+    span.emoticon.emo_phone {
+        background-image: url(skcg:emoticon?type=phone);
+    }
+
+    span.emoticon.emo_talk {
+        background-image: url(skcg:emoticon?type=talk);
+        background-position-y: -820px;
+    }
+
+    span.emoticon.emo_call {
+        background-image: url(skcg:emoticon?type=call);
+        background-position-y: -60px;
+    }
+
+    span.emoticon.emo_punch {
+        background-image: url(skcg:emoticon?type=punch);
+    }
+
+    span.emoticon.emo_skype {
+        background-image: url(skcg:emoticon?type=skype);
+    }
+
+    span.emoticon.emo_brokenheart {
+        background-image: url(skcg:emoticon?type=brokenheart);
+        background-position-y: -1000px;
+    }
+
+    span.emoticon.emo_mooning {
+        background-image: url(skcg:emoticon?type=mooning);
+        background-position-y: -300px;
+    }
+
+    span.emoticon.emo_oliver {
+        background-image: url(skcg:emoticon?type=oliver);
+        background-position-y: -20px;
+    }
+
+    span.emoticon.emo_bertlett {
+        background-image: url(skcg:emoticon?type=bertlett);
+        background-position-y: -20px;
+    }
+
+    span.emoticon.emo_mlt {
+        background-image: url(skcg:emoticon?type=mlt);
+    }
+
+    span.emoticon.emo_tauri {
+        background-image: url(skcg:emoticon?type=tauri);
+        background-position-y: -1060px;
+    }
+
