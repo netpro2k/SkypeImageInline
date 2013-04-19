@@ -1,8 +1,13 @@
 /**
  * @fileoverview Skype Panamericana Chatstyle main JS library
- * @author Margus Holland (margusholland@me.com)
- * @version 1.0
+ * @author Margus Holland <margusholland@me.com>
+ * @author Martin Kapp <meister@me.com>
+ * @version 1.1
 */
+
+/*
+ * Copyright (c) 2011 Skype Technologies S.A. All rights reserved.
+ */
 
 if (typeof SCS == "undefined") {
 	var SCS = {};
@@ -134,6 +139,10 @@ SCS.Conversation = function() {
 					}
 					
 				}
+
+				if (self._nearBottom()) {
+					self.scrollToEnd();
+				}
 			};
 			
 			$(window).scroll(function() {
@@ -199,7 +208,7 @@ SCS.Conversation = function() {
 				
 				// Open context menu
 				if ($b.hasClass("actions")) {
-					dC.showContextMenuForID_($i.attr("id"));
+					dC.showContextMenuForID_topOffset_leftOffset_($i.attr("id"), $b.offset().top, $b.offset().left);
 				}
 			});
 			return SCS.err.showError(200, "_item");
@@ -440,7 +449,7 @@ SCS.Conversation = function() {
 	 * @private
 	 */
 	this._nearBottom = function() {
-		return (document.body.scrollTop+window.innerHeight >= document.body.offsetHeight-75);
+		return (document.body.scrollTop+window.innerHeight >= document.body.offsetHeight-106);
 	};
 	
 	/**
@@ -451,42 +460,46 @@ SCS.Conversation = function() {
 	 * @type {String}
 	 * @see #prependItem
 	 * @see #appendBulk
-	 */	   
-	this.appendItem = function(html, scroll) {
-		if (_container.length > 0) {
-			// alert(html)
-			var $html = $(html);
-			var $links = $html.find('.body a');
-			$links.each(function(){
-				var $el = $(this)
-				var href = $el.attr('href')
-				var isImage = false;
-				if(href.indexOf('cl.ly') != -1){
-					href += '/content';
-					isImage = true;
-				} else if(href.indexOf('instagram.com') != -1){
-					href += '/media';
-					isImage = true;
-				}
-
-				if(href && (isImage || href.indexOf('jpg') != -1 || href.indexOf('gif') != -1 || href.indexOf('png') != -1)){
-					$el.replaceWith('<a href="'+$el.attr('href')+'"><img style="display: block; height: 250px;" src="' + href + '"/></a>');
-				}
-			})
-			var atEnd = self._nearBottom();
-			if ($("#typing").length > 0) {
-				$("#conversation #typing").before($html);
-			} else {
-				_container.append($html);
-			}
-			if (scroll && atEnd) {
-				self.scrollToEnd();
-			}
-			return SCS.err.showError(200, "appendItem");
-		} else {
-			return SCS.err.showError(510, "appendItem");
-		}
-	};
+	 */
+ 	this.appendItem = function(html, scroll) {
+ 		// alert(html)
+ 		var $html = $(html);
+ 		var $links = $html.find('.body a');
+ 		$links.each(function(){
+ 			var $el = $(this)
+ 			var href = $el.attr('href')
+ 			var isImage = false;
+ 			if(href.indexOf('cl.ly') != -1 && href.indexOf('image') != -1){
+ 				href += '/content';
+ 				isImage = true;
+ 			} else if(href.indexOf('instagram.com') != -1 || href.indexOf('instagr.am') != -1){
+ 				href += '/media';
+ 				isImage = true;
+ 			}
+ 			if(href && (
+ 				(isImage ||
+ 				(href.indexOf('jpg') != -1) ||
+ 				(href.indexOf('jpeg') != -1) ||
+ 				(href.indexOf('gif') != -1) ||
+ 				(href.indexOf('png') != -1))){
+ 				$el.replaceWith('<a href="'+$el.attr('href')+'"><img style="display: block; height: 250px;" src="' + href + '"/></a>');
+ 			}
+ 		});
+ 		if (_container.length > 0) {
+ 			var atEnd = self._nearBottom();
+ 			if ($("#typing").length > 0) {
+ 				$("#conversation #typing").before($html);
+ 			} else {
+ 				_container.append($html);
+ 			}
+ 			if (scroll && atEnd) {
+ 				self.scrollToEnd();
+ 			}
+ 			return SCS.err.showError(200, "appendItem");
+ 		} else {
+ 			return SCS.err.showError(510, "appendItem");
+ 		}
+ 	};
 
 	/**
 	 * Scroll the conversation to a specific item
@@ -1020,7 +1033,7 @@ SCS.Conversation = function() {
 				} else {
 					$m.removeClass("edited deleted sending").addClass(status);
 				}
-				return SCS.err.showError(200, "messageMarkAs");			   
+				return SCS.err.showError(200, "messageMarkAs");
 			} else {
 				return SCS.err.showError(511, "messageMarkAs");
 			}
@@ -1091,6 +1104,7 @@ SCS.Conversation = function() {
 			return SCS.err.showError(513, "messageUpdate");
 		}
 		var $m = $("#"+id+"");
+		$(".emoticon", $m).deleteSprite();
 		if (_container.length > 0) {
 			if ($m.length > 0 && $m.hasClass("message")) {
 				if (status != "undefined" && status != null) {
@@ -1103,12 +1117,76 @@ SCS.Conversation = function() {
 					$(".time", $m).html(time);
 				}
 				$m.css('display', 'inline').css('display', 'block');
+				updateEmoticonSprites();
+				updateImagesForCurrentScaleFactor();
+				return SCS.err.showError(200, "messageUpdate");
+			} else if ($m.length > 0 && $m.hasClass("emote")) {
+				if (status != "undefined" && status != null) {
+					self.messageMarkAs(id, status);
+				}
+				if (message != null) {
+					$(".body", $m).html(message);
+				}
+				if (time != null) {
+					$(".time", $m).html(time);
+				}
+				updateEmoticonSprites();
+				updateImagesForCurrentScaleFactor();
 				return SCS.err.showError(200, "messageUpdate");
 			} else {
 				return SCS.err.showError(511, "messageUpdate");
 			}
 		} else {
 			return SCS.err.showError(510, "messageUpdate");
+		}
+	};
+	
+	/**
+	 * Update video message's thumbnail image, used to set image path for thumbnail which is received asynchronously
+	 * @param {int} videoMessageId id of video message
+	 * @param {String} full path to video message thumbnail image
+	 * @return Response code with description
+	 * @type {String}
+	 */
+	this.videoMessageUpdateThumbnail = function(videoMessageId, thumbnailPath) {
+		var img = $("#videoMessageThumbnailImageFor_"+videoMessageId).get(0);
+		if (img) {	
+			img.src = "file://localhost"+thumbnailPath;
+			img.onload = function() {
+				this.style.width = 120 + "px";
+				this.style.height = "inherit";
+				this.style.backgroundColor = "inherit";
+				this.style.borderWidth = "1px";
+
+				var imageHeight = (120 / this.naturalWidth) * this.naturalHeight;
+				var marginTop = imageHeight - 34 - 10 + 2;
+				
+				var childNodes = this.parentNode.childNodes;
+				var i;
+				for (i=0; i < childNodes.length; i++) {
+					if (childNodes[i].className == 'playicon avatar') {
+						if (imageHeight > 30) {
+							childNodes[i].style.marginTop = marginTop + "px";
+							childNodes[i].style.marginLeft = "-126px";
+						}
+						else {
+							childNodes[i].style.marginTop = "1px";
+							childNodes[i].style.height = imageHeight + "px";
+							childNodes[i].style.width = imageHeight + "px";
+							childNodes[i].style.marginLeft = "-126px";
+						}
+						break;
+					}
+				}
+				var heightDifference = imageHeight - 80.0;
+				if (heightDifference > 0) {
+					scrollBy(0.0, heightDifference);
+				}
+			}
+			return SCS.err.showError(200, "videomessageUpdateThumbnail");
+		}
+		else {
+			return SCS.err.showError(511, "videomessageUpdateThumbnail");
 		}
 	};
 	
@@ -1185,6 +1263,41 @@ SCS.Conversation = function() {
 	};
 
 	/**
+	 * Show close button form chat area
+	 * @returns void
+	 */
+	this.showChatCloseButton = function() {
+		var $button = $(".chatCloseButton");
+		if (!$button.length) {
+			$button = $("<div class=\"chatCloseButton\" role=\"button\"></div>");
+			$button.attr("aria-label", dC.localizedStringForKey_("ButtonTitle_Close"));
+			$button.attr("title", dC.localizedStringForKey_("ButtonTitle_Close"));
+			$button.bind("click", function() {
+				dC.hideLiveChat();
+			});
+			_container.append($button);
+			return SCS.err.showError(200, "showChatCloseButtonCreated");
+		} else {
+			$button.show();
+		}
+		return SCS.err.showError(200, "showChatCloseButtonShown");
+	};
+
+	/**
+	 * Hides close button in the chat area
+	 * @returns void
+	 */
+	this.hideChatCloseButton = function() {
+		var $button = $(".chatCloseButton");
+		if ($button.length) {
+			$button.hide();
+			return SCS.err.showError(200, "hideChatCloseButton");
+		}
+		return SCS.err.showError(511, "hideChatCloseButton");
+	};
+
+
+	/**
 	 * Get info from an item if it’s visible in the viewport
 	 * @param {String} id ID of the item to ask
 	 * @param {Boolean} partly (Optional) Set to true to allow partial viewport visibility of an item
@@ -1216,7 +1329,7 @@ SCS.Conversation = function() {
 			return SCS.err.showError(510, "isInViewport");
 		}
 	};
-	
+
 	/**
 	 * Init SCS.Conversation object
 	 * @return Response code with description
