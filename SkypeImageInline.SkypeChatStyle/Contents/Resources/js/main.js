@@ -460,11 +460,16 @@ SCS.Conversation = function() {
 			$links.each(function(){
 				var $el = $(this)
 				var href = $el.attr('href')
+				var isImage = false;
 				if(href.indexOf('cl.ly') != -1){
 					href += '/content';
+					isImage = true;
+				} else if(href.indexOf('instagram.com') != -1){
+					href += '/media';
+					isImage = true;
 				}
 
-				if(href && (href.indexOf('cl.ly') != -1 || href.indexOf('jpg') != -1 || href.indexOf('gif') != -1 || href.indexOf('png') != -1)){
+				if(href && (isImage || href.indexOf('jpg') != -1 || href.indexOf('gif') != -1 || href.indexOf('png') != -1)){
 					$el.replaceWith('<a href="'+$el.attr('href')+'"><img style="display: block; height: 250px;" src="' + href + '"/></a>');
 				}
 			})
