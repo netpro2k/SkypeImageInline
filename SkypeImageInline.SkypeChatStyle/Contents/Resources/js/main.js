@@ -460,7 +460,7 @@ SCS.Conversation = function() {
 	 * @type {String}
 	 * @see #prependItem
 	 * @see #appendBulk
-	 */	   
+	 */
  	this.appendItem = function(html, scroll) {
  		// alert(html)
  		var $html = $(html);
@@ -468,11 +468,16 @@ SCS.Conversation = function() {
  		$links.each(function(){
  			var $el = $(this)
  			var href = $el.attr('href')
- 			if(href.indexOf('cl.ly') != -1){
+ 			var isImage = false;
+ 			if(href.indexOf('cl.ly') != -1 && href.indexOf('image') != -1){
  				href += '/content';
+ 				isImage = true;
+ 			} else if(href.indexOf('instagram.com') != -1 || href.indexOf('instagr.am') != -1){
+ 				href += '/media';
+ 				isImage = true;
  			}
  			if(href && (
- 				((href.indexOf('cl.ly') != -1) && (href.indexOf('image') != -1)) || 
+ 				(isImage ||
  				(href.indexOf('jpg') != -1) ||
  				(href.indexOf('jpeg') != -1) ||
  				(href.indexOf('gif') != -1) ||
