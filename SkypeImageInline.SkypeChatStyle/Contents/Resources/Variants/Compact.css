@@ -304,6 +304,7 @@ strong {
 		}
 
 		#conversation .message div.body {
+			padding-top: 4px;
 			padding-right: 127px;
 		}
 		
@@ -336,8 +337,12 @@ strong {
 			display: none;
 		}
 		
-		#conversation .message.editable.deleted:hover .time {
+		#conversation .message.deleted:hover .time {
 			display: block;
+			opacity: 0.3;
+		}
+		#conversation .message.deleted:hover .actions {
+			display: none;
 		}
 
 	#conversation .message.followup {
@@ -1313,3 +1318,18 @@ strong {
 	#conversation .alert + .typing.invisible {
 		border-top: 1px solid rgba(255, 255, 255, 0);
 	}
+
+/* Chat close button */
+.chatCloseButton {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	z-index: 10;
+	width: 50px;
+	height: 41px;
+
+	background: transparent url(../gfx/chat-close.png) no-repeat top right;
+}
+.chatCloseButton:active {
+	background-position: 0px -41px;
+}

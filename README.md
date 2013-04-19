@@ -1,24 +1,26 @@
 # SkypeImageInline
 
-Inlines links to images in skype conversations. It includes 2 parts:
+Inlines links to images in skype conversations. Requires [SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php).
 
-1. a [SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php) plugin.
-2. a "chat style" for Skype
+## Simple install
 
-## Installation
+1. Download and run the [latest Installer package](https://github.com/cspicker/SkypeImageInline/blob/master/Installers/SkypeImageInline-1.0.pkg).
+2. In Skype, select the SkypeImageInline style in Skype -> Preferences -> Messaging.
+3. Relaunch Skype.
 
-1. Clone the repo
-2. Open in Xcode
-3. Build it as Release
-4. Symlink or move the built `SkypeImageInline.bundle` into `~/Library/Application\ Support/SIMBL/Plugins`
-5. Copy the SkypeImageInline.SkypeChatStyle to `~/Library/Application\ Support/Skype/ChatStyles/`
-6. Open Skype
-7. Select the ImageInline style in in Skype > Prefferences > Messaging
-6. Relaunch Skype
+## Build and install from source
+
+```bash
+git clone git://github.com/cspicker/SkypeImageInline.git
+cd SkypeImageInline
+xcodebuild -project SkypeImageInline.xcodeproj -target SkypeImageInline -configuration Release build
+cp -r build/Release/SkypeImageInline.bundle ~/Library/Application\ Support/SIMBL/Plugins/
+cp -r SkypeImageInline.SkypeChatStyle ~/Library/Application\ Support/Skype/ChatStyles/
+```
 
 ## Usage
 
-After installing, any links containg .jpg, .gif, .png or cl.ly will automatically be inlined as images. You can click on the image to open in browser.
+After installing, any links to images containing .jpg, .jpeg, .gif, .png or cl.ly will automatically be inlined as images. You can click on the image to open in a browser.
 
 ## Copyright
 

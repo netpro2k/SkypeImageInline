@@ -1,0 +1,9 @@
+PROJECT: jQuery
+SHORTDESC: JS library for HTML traversal and event handling
+APPROVAL: TPS-47
+LICENSE: MIT
+USAGE: CLIENT
+DISTRIBUTED: Yes
+HOMEPAGE: https://jquery.com
+SOURCE: http://code.jquery.com/jquery-1.4.4.js
+DESCRIPTION: A fast, concise, library that simplifies how to traverse HTML documents, handle events, perform animations, and add AJAX.
